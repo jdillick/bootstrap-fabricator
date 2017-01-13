@@ -26,6 +26,10 @@ body {
 	}
 }
 
+.f-menu {
+  padding-bottom: 50px;
+}
+
 .f-container {
 	@include clearfix;
 	@include border-box;
@@ -33,6 +37,7 @@ body {
 	padding: 0 1em;
 	z-index: 0;
 	min-height: 100vh;
+  padding-bottom: 50px;
 
 	.f-menu-active & {
 		transform: translate($menu-width, 0);
@@ -40,6 +45,53 @@ body {
 		@media (min-width: 60em) {
 			margin-left: $menu-width;
 			transform: translate(0, 0);
+		}
+	}
+
+}
+
+.f-grid {
+	font-size: 10px;
+	padding: 0 15px;
+
+	div[class^="col-"], div[class*=" col-"] {
+		border-left: 1px solid $f-grey;
+		border-top: 1px solid $f-grey;
+		padding: 10px;
+
+		&:last-child {
+			border-right: 1px solid $f-grey;
+		}
+	}
+
+	.row { background-color: $f-grey-light; }
+
+	.row:last-child {
+		div[class^="col-"], div[class*=" col-"] {
+			border-bottom: 1px solid $f-grey;
+		}
+	}
+
+}
+
+.f-border-demo {
+	$f-border-demo-size: 100px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	margin-bottom: 5px;
+
+	span {
+		width: $f-border-demo-size;
+		height: $f-border-demo-size;
+		margin-right: 5px;
+		padding: 10px 12px;
+		font-size: 10px;
+		background-color: $f-grey-light;
+
+		&:last-child {
+			margin-right: 0;
 		}
 	}
 

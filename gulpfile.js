@@ -13,6 +13,8 @@ const runSequence = require('run-sequence');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const webpack = require('webpack');
+const concat = require('gulp-concat');
+
 
 // configuration
 const config = {
@@ -41,13 +43,22 @@ const config = {
       dest: 'dist/assets/toolkit/scripts',
       watch: 'src/assets/toolkit/scripts/**/*',
     },
+    vendor: {
+      dest: 'dist/assets/toolkit/scripts',
+      watch: 'src/assets/toolkit/scripts/vendor/**/*'
+    }
   },
   images: {
     toolkit: {
       src: ['src/assets/toolkit/images/**/*', 'src/favicon.ico'],
       dest: 'dist/assets/toolkit/images',
       watch: 'src/assets/toolkit/images/**/*',
-    },
+    }
+  },
+  fonts: {
+    src: './src/assets/fonts/**/*',
+    dest: 'dist/assets/fonts',
+    watch: 'src/assets/fonts/**/*'
   },
   templates: {
     watch: 'src/**/*.{html,md,json,yml}',
@@ -120,12 +131,30 @@ gulp.task('favicon', () => {
   .pipe(gulp.dest(config.dest));
 });
 
+// vendor scripts
+gulp.task('vendor', (done) => {
+  gulp.src(config.scripts.vendor.watch)
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest(config.scripts.vendor.dest));
+
+  done();
+});
+
+// fonts
+gulp.task('fonts', () => {
+	return gulp.src(config.fonts.src)
+      .pipe(gulp.dest(config.fonts.dest));
+});
+
 
 // assembler
 gulp.task('assembler', (done) => {
   assembler({
     logErrors: config.dev,
     dest: config.dest,
+    helpers: {
+      "loop": require('handlebars-loop')
+    }
   });
   done();
 });
@@ -154,6 +183,12 @@ gulp.task('serve', () => {
   gulp.task('images:watch', ['images'], browserSync.reload);
   gulp.watch(config.images.toolkit.watch, ['images:watch']);
 
+  gulp.task('vendor:watch', ['vendor'], browserSync.reload);
+  gulp.watch(config.scripts.vendor.watch, ['vendor:watch']);
+
+  gulp.task('fonts:watch', ['fonts'], browserSync.reload);
+  gulp.watch(config.fonts.watch, ['fonts:watch']);
+
 });
 
 
@@ -163,8 +198,10 @@ gulp.task('default', ['clean'], () => {
   // define build tasks
   const tasks = [
     'styles',
+    'vendor',
     'scripts',
     'images',
+    'fonts',
     'assembler',
   ];
 

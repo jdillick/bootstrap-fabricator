@@ -1,3 +1,13 @@
 /**
- * Toolkit JavaScript
+ * ------------------
+ *  Modules
+ * ------------------
  */
+
+
+/**
+ * ------------------
+ *  Controllers
+ * ------------------
+ */
+require('./controller/main.js');

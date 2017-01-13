@@ -9,6 +9,30 @@
 			<a href="index.html" class="f-menu__heading">Overview</a>
 		</li>
 
+    <li>
+			<a href="docs.html" class="f-menu__heading">Docs</a>
+			<ul>
+				{{#each docs}}
+				<li>
+					<a href="docs.html#{{@key}}">{{name}}</a>
+				</li>
+				{{/each}}
+			</ul>
+		</li>
+
+    {{#each views}}
+		<li>
+			<a href="{{@key}}.html" class="f-menu__heading">{{name}}</a>
+			<ul>
+				{{#each items}}
+				<li>
+					<a href="{{@../key}}/{{@key}}.html" target="_blank">{{name}}</a>
+				</li>
+				{{/each}}
+			</ul>
+		</li>
+		{{/each}}
+
 		{{#each materials}}
 		<li>
 			<a href="{{@key}}.html" class="f-menu__heading">{{name}}</a>
@@ -22,29 +46,9 @@
 		</li>
 		{{/each}}
 
-		{{#each views}}
-		<li>
-			<a href="{{@key}}.html" class="f-menu__heading">{{name}}</a>
-			<ul>
-				{{#each items}}
-				<li>
-					<a href="{{@../key}}/{{@key}}.html" target="_blank">{{name}}</a>
-				</li>
-				{{/each}}
-			</ul>
-		</li>
-		{{/each}}
 
-		<li>
-			<a href="docs.html" class="f-menu__heading">Docs</a>
-			<ul>
-				{{#each docs}}
-				<li>
-					<a href="docs.html#{{@key}}">{{name}}</a>
-				</li>
-				{{/each}}
-			</ul>
-		</li>
+
+
 
 	</ul>
 

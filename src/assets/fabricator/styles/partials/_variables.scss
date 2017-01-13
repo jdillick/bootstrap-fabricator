@@ -28,6 +28,10 @@ $colors: map-merge($base-colors, $theme);
 $menu-width: map-get($settings, menu-width);
 
 
+$f-grey:        #999999;
+$f-grey-light:  #DCDCDC;
+
+
 // functions
 @function color($color) {
     @return map-get($colors, $color);

@@ -8,20 +8,20 @@
 
 	<title>{{title}}</title>
 
-	{{#if fabricator}}<link rel="stylesheet" href="{{baseurl}}/assets/fabricator/styles/f.css">{{/if}}
-
 	<!-- toolkit styles -->
 	<link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/toolkit.css">
 	<!-- /toolkit styles -->
+
+	{{#if fabricator}}<link rel="stylesheet" href="{{baseurl}}/assets/fabricator/styles/f.css">{{/if}}
 
 </head>
 <body>
 
 	{{#if fabricator}}
-		{{> f-icons}}
-		{{> f-menu}}
-		<div class="f-container">
-			{{> f-control-bar}}
+	{{> f-icons}}
+	{{> f-menu}}
+	<div class="f-container">
+		{{> f-control-bar}}
 	{{/if}}
 
 
@@ -29,9 +29,13 @@
 
 
 	{{#if fabricator}}
-		</div>
+	</div>
 	<script src="{{baseurl}}/assets/fabricator/scripts/f.js"></script>
 	{{/if}}
+
+  <!-- vendor scripts -->
+  <script src="{{baseurl}}/assets/toolkit/scripts/vendor.js"></script>
+  <!--/vendor scripts -->
 
 	<!-- toolkit scripts -->
 	<script src="{{baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
