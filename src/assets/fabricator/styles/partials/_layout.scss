@@ -75,7 +75,7 @@ body {
 }
 
 .f-border-demo {
-	$f-border-demo-size: 100px;
+	$f-border-demo-size: 120px;
 
 	display: flex;
 	flex-direction: row;
@@ -89,6 +89,10 @@ body {
 		padding: 10px 12px;
 		font-size: 10px;
 		background-color: $f-grey-light;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 		&:last-child {
 			margin-right: 0;

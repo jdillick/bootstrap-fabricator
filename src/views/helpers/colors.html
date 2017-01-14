@@ -1,0 +1,32 @@
+---
+title: "Colors"
+fabricator: true
+---
+<h1>{{title}}</h1>
+<section class="mb-5">
+  <p>
+    Listed below are the variable/class names and colors of every color used color in Bootstrap <span class="monospace">{{toolkit.bootstrap}}</span> plus any colors you add to the theme.
+    <div>You can use a color on an element by applying:</div>
+    <ul>
+      <li><strong class="small">Background color: </strong><span class="monospace">bgc-{color}</span></li>
+      <li><strong class="small">Border color: </strong><span class="monospace">bdc-{color}</span></li>
+      <li><strong class="small">Text color: </strong><span class="monospace">txtc-{color}</span></li>
+    </ul>
+  </p>
+  <div>Need to add a new color?</div>
+  <ol class="mb-5">
+    <li>Open the <strong class="monospace">'src/assets/toolkit/styles/themes/YOURTHEME/_colors.scss'</strong> file.</li>
+    <li>
+      Add your color name and value to the <strong class="monospace">$colors</strong> object.
+      <div class="small">Typically the color value is a variable specified before the inclusion of the <strong class="monospace">_colors.scss</strong>.</div>
+    </li>
+    <li>Open the <strong class="monospace">'src/data/toolkit.yml'</strong> file.</li>
+    <li>Update the colors value with the total number of colors in the <strong class="monospace">$colors</strong> object.</li>
+  </ol>
+  <div class="color-grid mb-4">
+    {{#loop 1 toolkit.colors 1}}
+    <div class="color-grid-item"></div>
+    {{/loop}}
+  </div>
+
+</section>
