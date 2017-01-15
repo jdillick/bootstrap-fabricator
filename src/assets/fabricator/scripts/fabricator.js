@@ -1,5 +1,5 @@
 require('./prism');
-
+require('./creative');
 /**
  * Global `fabricator` object
  * @namespace
@@ -325,7 +325,6 @@ fabricator.setInitialMenuState = () => {
 
 };
 
-
 /**
  * Initialization
  */
@@ -337,3 +336,5 @@ fabricator
  .buildColorChips()
  .setActiveItem()
  .bindCodeAutoSelect();
+
+

@@ -1,0 +1,15 @@
+---
+fabricator: true
+---
+
+<h1 data-f-toggle="labels">Creative</h1>
+
+<ul>
+{{#each views.creative.items}}
+
+	<li>
+		<a href="helpers/{{@key}}.html" class="f-item-heading">{{name}}</a>
+	</li>
+
+{{/each}}
+</ul>

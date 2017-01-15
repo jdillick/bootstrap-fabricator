@@ -1,0 +1,83 @@
+<header>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-9">
+      <h1>{{title}}</h1>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-3">
+      <div class="mt-4 hidden-sm-up"></div>
+      <a href="https://ibm.box.com/s/daq0h36f0hqu4vafah6mpnahcu7miful" class="btn btn-block btn-outline-primary btn-lg float-sm-right" target="_blank">Download All</a>
+    </div>
+  </div>
+</header>
+
+<section class="mt-5">
+  <div class="f-tiles">
+    {{#each files}}
+    <div class="f-tile rounded">
+
+      <div class="f-tile-header">
+        <a href="#creative-modal"
+          data-title="{{name}}"
+          data-download="{{psd}}"
+          data-image="{{baseurl}}{{thm}}"
+          data-toggle="modal"
+          data-action="view"
+          data-backdrop="true">
+          <img src="{{baseurl}}{{thm}}" alt="{{name}}" />
+        </a>
+      </div>
+
+      <div class="f-tile-body">
+        <div class="small mb-1 strong">{{name}}</div>
+        <div class="small mb-1 monospace">Added: {{created}}</div>
+        {{#if updated}}
+        <div class="small monospace">Updated: {{updated}}</div>
+        {{/if}}
+      </div>
+
+      <div class="f-tile-footer">
+          <div class="btn-group">
+            {{#if psd}}
+            <a href="{{psd}}" class="btn btn-outline-secondary rounded-0" target="_blank" >
+              <i class="lnr-download2"></i>
+              <span class="small">Download</span>
+            </a>
+            <a href="#creative-modal"
+               class="btn btn-outline-secondary rounded-0"
+               data-title="{{name}}"
+               data-download="{{psd}}"
+               data-image="{{baseurl}}{{thm}}"
+               data-toggle="modal"
+               data-action="comment"
+               data-backdrop="true">
+              <i class="lnr-bubbles"></i>
+              <span class="badge badge-danger badge-pill" data-disqus-url="{{psd}}"></span>
+            </a>
+            {{else}}
+            <a href="{{thm}}" class="btn btn-outline-secondary rounded-0" target="_blank">
+              <i class="lnr-download2"></i>
+              <span class="small">Download</span>
+            </a>
+            {{/if}}
+            <a href="{{baseurl}}{{thm}}" class="btn btn-outline-secondary rounded-0" target="_blank"><i class="lnr-expand2"></i></a>
+          </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="creative-modal" tabindex="-1" role="dialog" aria-labelledby="creativeModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content rounded-0">
+      <div class="modal-header rounded-0">
+        <h5 class="modal-title" id="creativeModalTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <i class="lnr-cross"></i>
+        </button>
+      </div>
+      <div class="modal-body creative-preview"></div>
+    </div>
+  </div>
+</div>
