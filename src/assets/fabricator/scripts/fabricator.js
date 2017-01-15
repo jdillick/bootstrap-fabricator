@@ -1,5 +1,8 @@
 require('./prism');
+require('./colors');
 require('./creative');
+require('./search');
+
 /**
  * Global `fabricator` object
  * @namespace
@@ -336,5 +339,3 @@ fabricator
  .buildColorChips()
  .setActiveItem()
  .bindCodeAutoSelect();
-
-

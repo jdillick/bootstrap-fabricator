@@ -1,7 +1,7 @@
 var DISQUS = require('./disqus');
 
 /**
- * Local `creative` object
+ * Contstructor
  * @namespace
  */
 var creative = {};
@@ -30,8 +30,12 @@ creative.on = {
       // Set the title
       title.html(data.title);
 
+      // Set the download button link
+      var dbtn = modal.find('a[aria-label="download"]')
+          dbtn.attr('href', data.download);
+
       // Get content zone
-      var body = modal.find('.modal-body').html('');
+      var body = modal.find('.creative-preview').html('');
 
       var html = [];
 

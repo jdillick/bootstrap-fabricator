@@ -2,11 +2,17 @@
 title: "Borders"
 fabricator: true
 ---
-<h1 class="mb-3">{{title}}</h1>
-<p>
-  You can apply a border to any element by specifying:
-  <div class="monospace">bd-{t/r/b/l}-{1/2/3/4/5}</div>
-</p>
+<header class="mb-3">
+  <h1>{{title}}</h1>
+</header>
+
+<section class="mb-5">
+  <p>
+    You can apply a border to any element by specifying:
+    <kbd>bd-{t/r/b/l}-{1/2/3/4/5}</kbd>
+  </p>
+</section>
+
 <section class="mb-2 f-border-demo">
   <span class="bd-1 bdc-danger">.bd-1</span>
   <span class="bd-t-1 bdc-danger">.bd-t-1</span>
@@ -26,7 +32,7 @@ fabricator: true
 <h2 class="mb-3">Border Colors</h2>
 <p>
   You can colorize the border by applying:
-  <div class="monospace">bdc-{color}</div>
+  <kbd>bdc-{color}</kbd>
   <div class="small">See <a href="{{baseurl}}/helpers/colors.html">colors</a> for a full list of color names.</div>
 </p>
 <section class="mb-5 f-border-demo">
@@ -40,7 +46,7 @@ fabricator: true
 <h2 class="mb-3">Removing Borders</h2>
 <p>
   You can individually remove borders by applying:
-  <div class="monospace">bd-{t/r/b/l}-0</div>
+  <kbd>bd-{t/r/b/l}-0</kbd>
 </p>
 <section class="mb-5 f-border-demo">
   <span class="bd-5 bdc-primary bd-0">.bd-0</span>
@@ -54,7 +60,7 @@ fabricator: true
 <h2 class="mb-3">Border Radius</h2>
 <p>
   You can add border-radius to an element by applying:
-  <div class="monospace">rounded-{top/right/bottom/left/circle/0}</div>
+  <kbd>rounded-{top/right/bottom/left/circle/0}</kbd>
 </p>
 <section class="mb-5 f-border-demo">
   <span class="txtc-white bgc-inverse rounded-0">.rounded-0</span>
@@ -65,4 +71,3 @@ fabricator: true
   <span class="txtc-white bgc-info rounded-left">.rounded-left</span>
   <span class="txtc-white bgc-gray rounded-circle">.rounded-circle</span>
 </section>
-

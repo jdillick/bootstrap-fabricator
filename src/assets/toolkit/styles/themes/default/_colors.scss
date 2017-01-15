@@ -242,16 +242,27 @@ $colorize: (
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-start;
+  background-color: #F0F0F0;
 
   .color-grid-item {
     width: 33%;
     min-height: 50px;
-    font-size: 11px;
+    font-size: 10px;
     padding: 5px 10px;
+    margin: .5px;
+    flex-grow: 1;
 
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+   @media only screen and (max-width: 1024px) {
+    width: 50%
+   }
+
+   @media only screen and (max-width: 520px) {
+    width: 100%;
+   }
   }
 }
 
@@ -280,10 +291,21 @@ $color-grid-idx: 1;
     }
     &:after {
       width: 35%;
-      font-size: 10px;
       text-align: right;
       content: "#{$value}";
       text-transform: uppercase;
+    }
+
+    &.clear-content {
+      span {
+        width: 50%;
+        &:last-child {
+          text-align: right;
+        }
+      }
+
+      &:after,
+      &:before { display: none; }
     }
   }
 
